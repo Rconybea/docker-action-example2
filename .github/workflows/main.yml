@@ -17,9 +17,7 @@ jobs:
     steps:
       - name: hello world action step
         id: hello
-        # run: /bin/entrypoint.sh
-        with:
-          who-to-greet: 'Xioni!  You shouldn't have!'
+        run: /bin/entrypoint.sh 'Xioni!'
       - name: get output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
         
