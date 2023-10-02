@@ -1,0 +1,25 @@
+on: [push]
+
+jobs:
+  hello_world_job:
+    name: a job to say hello,  using separate docker container
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/rconybea/docker-nix-hello:v1
+      ## no credentials required, image is public
+      # credentials:
+      #   username: ${{ github.actor }}
+      #   password: ${{ secrets.github_token }}
+      #
+      # env: <map with environment variables to set>
+      # ports: [8080, 8081]
+      # options: <docker create options>
+    steps:
+      - name: hello world action step
+        id: hello
+        uses: 
+        with:
+          who-to-greet: 'Xioni!  You shouldn't have!'
+      - name: get output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
+        
