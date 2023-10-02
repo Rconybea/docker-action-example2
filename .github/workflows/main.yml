@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: hello world action step
         id: hello
-        uses: 
+        # run: /bin/entrypoint.sh
         with:
           who-to-greet: 'Xioni!  You shouldn't have!'
       - name: get output time
